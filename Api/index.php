@@ -11,9 +11,8 @@ use Nyholm\Psr7\Factory\Psr17Factory;
 require_once './vendor/autoload.php';
 
 
-// $authenticator = new Authenticator('your-secret-key');
-// $rocketModel = new Rocket($authenticator);
-$rocketModel = new Rocket();
+$authenticator = new Authenticator('your-secret-key');
+$rocketModel = new Rocket($authenticator);
 $controller = new RocketController($rocketModel);
 
 $psr17Factory = new Psr17Factory();
@@ -22,14 +21,13 @@ $response = $psr17Factory->createResponse();
 
 $uri = $request->getUri()->getPath();
 
-// $userData = $authenticator->handleRequest($request);
+$userData = $authenticator->handleRequest($request);
 
 
 
 $segments = explode('/', trim($uri, '/'));
 
-// if ($userData !== null) {
-    if ($segments[0] == 'rockets') {
+if ($userData !== null) {
     switch ($segments[1] ?? null) {
         case 'search':
             $response = $controller->searchRocket($request, $response);

@@ -13,7 +13,7 @@ class Authenticator
         $this->secretKey = $secretKey;
     }
 
-    public function generateToken()
+    public function generateToken()         
     {
         $userData = [
             'sub' => 'anonymous',

@@ -7,36 +7,26 @@ use Firebase\JWT\JWT;
 
 class Rocket{
     private $apiUrl;
-    // private $headers;
-    // private $authenticator;
+    private $headers;
+    private $authenticator;
 
-    // public function __construct(Authenticator $authenticator)
-    // {
-    //     $this->authenticator = $authenticator;
-    //     $this->apiUrl = 'https://api.spacexdata.com/v3/rockets';
-    //     $token = $this->authenticator->generateToken();
-
-    //     $this->headers = [
-    //         'Authorization: Bearer ' . $token,
-    //         'Content-Type: application/json', 
-    //     ];
-    // }
-
-    public function __construct()
+    public function __construct(Authenticator $authenticator)
     {
-        // $this->authenticator = $authenticator;
+        $this->authenticator = $authenticator;
         $this->apiUrl = 'https://api.spacexdata.com/v3/rockets';
-        // $token = $this->authenticator->generateToken();
+        $token = $this->authenticator->generateToken();
 
-        // $this->headers = [
-        //     'Authorization: Bearer ' . $token,
-        //     'Content-Type: application/json', 
-        // ];
+        $this->headers = [
+            'Authorization: Bearer ' . $token,
+            'Content-Type: application/json', 
+        ];
     }
+
+   
 
     private function spaceXapi($param=""){
         $ch = curl_init($this->apiUrl  .$param);
-        // curl_setopt($ch, CURLOPT_HTTPHEADER, $this->headers);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $this->headers);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $data = curl_exec($ch);
         // Check for cURL errors
