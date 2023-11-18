@@ -49,6 +49,20 @@ class RocketController{
         }
     }
 
+    public function search($status, $originalLaunch, $type)
+    {
+        $queryParams = [
+            'status' => $status,
+            'original_launch' => $originalLaunch,
+            'type' => $type,
+        ];
+    
+        $queryString = http_build_query(array_filter($queryParams));
+        $queryString = $queryString ? '?' . $queryString : '';
+    
+        return $this->spaceXapi($queryString);
+    }
+
 
 
 
