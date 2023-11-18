@@ -3,6 +3,7 @@
 namespace App;
 
 
+use Dotenv\Dotenv;
 use App\Model\Rocket;
 use App\Authorization\Authenticator;
 use App\Controller\RocketController;
@@ -10,8 +11,12 @@ use Nyholm\Psr7\Factory\Psr17Factory;
 
 require_once './vendor/autoload.php';
 
+$dotenv = Dotenv::createImmutable(__DIR__);
+$dotenv->load();
 
-$authenticator = new Authenticator('25654677687@#$');
+// Access the secret key
+$secretKey = $_ENV['SECRET_KEY'] ?? null;
+$authenticator = new Authenticator($secretKey );
 
 // $rocketModel = new Rocket();
 // $controller = new RocketController($rocketModel);

@@ -12,20 +12,21 @@ class Rocket{
 
     public function __construct( Authenticator $authenticator)
     {
-        $this->authenticator = $authenticator;
+        // $this->authenticator = $authenticator;
         $this->apiUrl = 'https://api.spacexdata.com/v3/rockets';
-        // $token = $this->authenticator->extractHeaders();
+        // $token = $this->authenticator->generateToken();
 
-        $this->headers = $this->authenticator->extractHeaders();
-
-            
+        // $this->headers = [
+        //     'Authorization: Bearer ' . $token,
+        //     'Content-Type: application/json', 
+        // ];
     }
 
    
 
     private function spaceXapi($param=""){
         $ch = curl_init($this->apiUrl  .$param);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $this->headers);
+        // curl_setopt($ch, CURLOPT_HTTPHEADER, $this->headers);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $data = curl_exec($ch);
         // Check for cURL errors
