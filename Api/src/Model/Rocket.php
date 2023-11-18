@@ -1,18 +1,48 @@
 <?php
 namespace App\Model;
 
+use Firebase\JWT\JWT;
+
+
+
+
+
 class Rocket{
 
     private $apiUrl;
+    private $headers;
     
     public function __construct()
     {
        $this->apiUrl = 'https://api.spacexdata.com/v3/rockets';
+       $token = $this->generateToken();
+       $this->headers = [
+        'Authorization: Bearer ' . $token,
+        'Content-Type: application/json', // Adjust content type as needed
+    ];
+    
     }
 
 
+    protected $secretKey = 'your-secret-key';
+
+    public function generateToken()
+    {
+        $userData = [
+            'sub' => 'anonymous',
+        ];
+
+        // Create a token
+        $token = JWT::encode($userData, $this->secretKey, 'HS256');
+
+        return $token;
+    }
+
+   
+
     private function spaceXapi($param=""){
         $ch = curl_init($this->apiUrl  .$param);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $this->headers);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $data = curl_exec($ch);
         // Check for cURL errors

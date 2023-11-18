@@ -1,5 +1,6 @@
 <?php
 
+
 use Firebase\JWT\JWT;
 
 $secretKey = 'your-secret-key';
