@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Model\Rocket;
-use Firebase\JWT\JWT;
 use Nyholm\Psr7\Response;
 use Nyholm\Psr7\ServerRequest;
 
@@ -70,29 +69,8 @@ class RocketController{
     }
     }
 
-    protected $secretKey = 'your-secret-key';
-
-    public function handleRequest($request)
-    {
-        // Extract the token from the Authorization header
-        $authorizationHeader = $request->getHeaderLine('Authorization');
-        $token = str_replace('Bearer ', '', $authorizationHeader);
-
-        try {
-            // Decode and verify the token
-            $decoded = JWT::decode($token, $this->secretKey, ['HS256']);
-
-            // Token is valid, and $decoded contains user information
-            // Access user data like $decoded->sub
-
-            // Continue processing the request...
-        } catch (\Exception $e) {
-            // Token is invalid or expired
-            echo 'Invalid token: ' . $e->getMessage();
-            // Handle the invalid token scenario, such as returning a 401 Unauthorized response
-            // or redirecting to a login page
-        }
-    }
+   
+   
 
 
 }

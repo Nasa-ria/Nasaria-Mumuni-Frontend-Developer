@@ -2,11 +2,19 @@
 
 namespace App;
 
+
 use App\Model\Rocket;
+use App\Authorization\Authenticator;
 use App\Controller\RocketController;
 use Nyholm\Psr7\Factory\Psr17Factory;
 
 require_once './vendor/autoload.php';
+
+
+// $authenticator = new Authenticator('your-secret-key');
+// $rocketModel = new Rocket($authenticator);
+$rocketModel = new Rocket();
+$controller = new RocketController($rocketModel);
 
 $psr17Factory = new Psr17Factory();
 $request = $psr17Factory->createServerRequest('GET', $_SERVER['REQUEST_URI']);
@@ -14,13 +22,14 @@ $response = $psr17Factory->createResponse();
 
 $uri = $request->getUri()->getPath();
 
-$rocketModel = new Rocket();
-$controller = new RocketController($rocketModel);
+// $userData = $authenticator->handleRequest($request);
+
 
 
 $segments = explode('/', trim($uri, '/'));
 
-if ($segments[0] == 'rockets') {
+// if ($userData !== null) {
+    if ($segments[0] == 'rockets') {
     switch ($segments[1] ?? null) {
         case 'search':
             $response = $controller->searchRocket($request, $response);
