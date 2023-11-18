@@ -13,6 +13,8 @@ class Authenticator
         $this->secretKey = $secretKey;
     }
 
+
+     
     public function generateToken()         
     {
         $userData = [
@@ -20,28 +22,41 @@ class Authenticator
         ];
 
         // Create a token
-        $token = JWT::encode($userData, $this->secretKey, 'HS256');
+        // $token = JWT::encode($userData, $this->secretKey, 'HS256');
 
-        return $token;
+        // return $token;
     }
 
-    public function handleRequest($request)
+    public function handleRequest($authorizationHeader)
     {
-        $authorizationHeader = $request->getHeaderLine('Authorization');
-
-        if (empty($authorizationHeader)) {
-            // Authorization header is missing
-            throw new \Exception('Authorization header is missing.');
-        }
-
-        $token = str_replace('Bearer ', '', $authorizationHeader);
-
-        try {
-            $decoded = JWT::decode($token, $this->secretKey, ['HS256']);
-            return $decoded;
-        } catch (\Exception $e) {
-            // Handle invalid or expired token (throwing an exception is recommended)
-            throw new \Exception('Invalid or expired token: ' . $e->getMessage());
+        if (!empty($authorizationHeader) && strpos($authorizationHeader, 'Bearer ') === 0) {
+            $token = substr($authorizationHeader, 7);
+    
+            try {
+                // Decode the token
+                $decoded = $this->decodeToken($token);
+    
+                // Access headers separately if needed
+                // $headers = $this->extractHeaders($token);
+    
+                return $decoded;
+            } catch (\Exception $e) {
+                // Log the error or handle it in an appropriate way
+                // For example, you can return a custom error response
+                return null;
+            }
+        } else {
+            // Handle the case where the token is empty or doesn't start with 'Bearer '
+            return null;
         }
     }
+    
+    private function decodeToken($token)
+    {
+        // Decode the token without passing $headers by reference
+        return JWT::decode($token, $this->secretKey, ['HS256']);
+    }
+
+    // Other methods...
+
 }

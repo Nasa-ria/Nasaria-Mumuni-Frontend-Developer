@@ -3,7 +3,7 @@
         'name' => 'api/technical',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => '0d90748c2846dae9c25731ba1526847b5d5c3b34',
+        'reference' => '261e7d4fa7a8d8cea43ea532baf23f3f332f213e',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'api/technical' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '0d90748c2846dae9c25731ba1526847b5d5c3b34',
+            'reference' => '261e7d4fa7a8d8cea43ea532baf23f3f332f213e',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

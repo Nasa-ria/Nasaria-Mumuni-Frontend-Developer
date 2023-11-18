@@ -10,16 +10,15 @@ class Rocket{
     private $headers;
     private $authenticator;
 
-    public function __construct(Authenticator $authenticator)
+    public function __construct( Authenticator $authenticator)
     {
         $this->authenticator = $authenticator;
         $this->apiUrl = 'https://api.spacexdata.com/v3/rockets';
-        $token = $this->authenticator->generateToken();
+        // $token = $this->authenticator->extractHeaders();
 
-        $this->headers = [
-            'Authorization: Bearer ' . $token,
-            'Content-Type: application/json', 
-        ];
+        $this->headers = $this->authenticator->extractHeaders();
+
+            
     }
 
    
