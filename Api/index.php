@@ -23,17 +23,14 @@ $segments = explode('/', trim($uri, '/'));
 if ($segments[0] == 'rockets') {
     switch ($segments[1] ?? null) {
         case 'search':
-            // Assuming it's a search request
-            $response=  $controller->searchRocket($request, $response);
+            $response = $controller->searchRocket($request, $response);
             break;
         case null:
-            // Assuming it's a request for all rockets
-            $response=   $controller->listRockets($request, $response);
+            $response = $controller->listRockets($request, $response);
             break;
         default:
-            // Assuming it's a string identifier
             $rocket_id = $segments[1];
-            $response=    $controller->getRocket($request, $response, $rocket_id);
+            $response = $controller->getRocket($request, $response, $rocket_id);
             break;
     }
 } else {
