@@ -49,18 +49,18 @@ class RocketController{
         }
     }
 
-    public function search($status, $originalLaunch, $type)
+
+    public function getRocket(ServerRequest $request, Response $response, $rocket_id)
     {
-        $queryParams = [
-            'status' => $status,
-            'original_launch' => $originalLaunch,
-            'type' => $type,
-        ];
-    
-        $queryString = http_build_query(array_filter($queryParams));
-        $queryString = $queryString ? '?' . $queryString : '';
-    
-        return $this->spaceXapi($queryString);
+
+        try {
+            $rocketData = $this->rocketModel->findOne($rocket_id);
+            // Use your custom jsonResponse method
+            return $this->jsonResponse(['message' => 'Data fetched successfully', 'data' => $rocketData]);
+        } catch (\Exception $e) {
+            // Handle the exception, log, and return an error response
+            return $this->jsonResponse(['error' => $e->getMessage()], 500);
+        }
     }
 
 
