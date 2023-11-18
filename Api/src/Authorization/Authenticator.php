@@ -53,6 +53,9 @@ class Authenticator
     
     private function decodeToken($token)
     {
+//         $algorithm = getenv('JWT_ALGORITHM');
+// $decoded = JWT::decode($token, $this->secretKey, [$algorithm]);
+
         // Decode the token without passing $headers by reference
         return JWT::decode($token, $this->secretKey, ['HS256']);
     }
