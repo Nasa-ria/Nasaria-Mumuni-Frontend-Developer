@@ -14,6 +14,7 @@ class RocketController{
         return new Response($statusCode, ['Content-Type' => 'application/json'], $body);
     }
 
+    
     public function listRockets(ServerRequest $request, Response $response)
     {
         try {
