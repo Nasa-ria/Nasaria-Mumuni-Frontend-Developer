@@ -5,8 +5,10 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "App": "src/"
+            "App\\": "src/"
         }
     },
-    "require": {}
+    "require": {
+        "nyholm/psr7": "^1.8"
+    }
 }
