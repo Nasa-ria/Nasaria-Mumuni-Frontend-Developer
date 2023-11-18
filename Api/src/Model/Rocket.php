@@ -30,4 +30,9 @@ class Rocket{
         return $this->spaceXapi();
     }
 
+    public function findOne($rocket_id)
+    {   
+        $concat = '/'.$rocket_id;
+        return $this->spaceXapi($concat);
+     }
 }
