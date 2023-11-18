@@ -2,11 +2,19 @@
 
 namespace App\Controller;
 
+use App\Model\Rocket;
 use Nyholm\Psr7\Response;
 use Nyholm\Psr7\ServerRequest;
 
 class RocketController{
 
+
+    private $rocketModel;
+
+    public function __construct(Rocket $rocketModel)
+    {
+        $this->rocketModel = $rocketModel;
+    }
     public function jsonResponse($data, $statusCode = 200)
     {
         $body = json_encode($data);
@@ -14,7 +22,7 @@ class RocketController{
         return new Response($statusCode, ['Content-Type' => 'application/json'], $body);
     }
 
-    
+
     public function listRockets(ServerRequest $request, Response $response)
     {
         try {
