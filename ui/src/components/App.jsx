@@ -11,15 +11,15 @@ function App() {
           
                   <Nav/>
     <main>    
-    {/* <Header/> */}
+
       <div className="album py-5 bg-light">
         <div className="container">
-           <div className="row">
+           {/* <div className="row"> */}
     <Routes>
     <Route path="/" exact element={ <Home/>}/>
 
     </Routes>
-           </div>
+           {/* </div> */}
        
         </div>
       </div>
