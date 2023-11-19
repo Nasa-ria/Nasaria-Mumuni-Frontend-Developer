@@ -18,8 +18,6 @@ $dotenv->load();
 $secretKey = $_ENV['SECRET_KEY'] ?? null;
 $authenticator = new Authenticator($secretKey );
 
-// $rocketModel = new Rocket();
-// $controller = new RocketController($rocketModel);
 
 $psr17Factory = new Psr17Factory();
 $request = $psr17Factory->createServerRequest('GET', $_SERVER['REQUEST_URI']);
@@ -30,16 +28,11 @@ $uri = $request->getUri()->getPath();
 
 // Get the Authorization header from the request
 $authorizationHeader = $_SERVER['HTTP_AUTHORIZATION'] ?? '';
+// var_dump($authorizationHeader );
 
 // Pass the token to the handleRequest method in the Authenticator
 $userData = $authenticator->handleRequest($authorizationHeader);
 
-
-// $userData = $authenticator->handleRequest($request);
-
-
-
-// $segments = explode('/', trim($uri, '/'));
 if ($userData) {
     // Instantiate Rocket model and controller
     $rocketModel = new Rocket($authenticator);
