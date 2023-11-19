@@ -16,7 +16,7 @@ function App() {
         <div className="container">
            {/* <div className="row"> */}
     <Routes>
-    <Route path="/" exact element={ <Home/>}/>
+    <Route path="/rocket" exact element={ <Home/>}/>
 
     </Routes>
            {/* </div> */}
