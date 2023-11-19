@@ -1,10 +1,11 @@
 
 import { useContext, useEffect, useState } from "react"
-import { connectApi,abortController} from "../lib/function"
+import { connectApi, abortController } from "../lib/function"
 import './Style.css';
-import Rocket from "./Rocket"
+import RocketCard from "./RocketCard"
 
-function RocketList(props){
+
+function RocketList(props) {
   // const{auth}=useContext(AuthContext)
   // const[rockets,setRockets]=useState([])
   // useEffect(()=>{
@@ -13,7 +14,7 @@ function RocketList(props){
   //     const response =await connectApi("/rockets","GET")
   //     // set posts
   //     setRockets(response.data);
-      
+
   //   }
   //    getRockets()
   //    return()=>{
@@ -23,66 +24,42 @@ function RocketList(props){
   //    }
   //    },[])
 
-    const [isPopupOpen, setIsPopupOpen] = useState(false);
-  
-    const openPopup = () => {
-      setIsPopupOpen(true);
-    };
-  
-    const closePopup = () => {
-      setIsPopupOpen(false);
-    };
-  
-  
-      
-    return(
-      <> 
 
-      <h3 className="text-center">ROCKETS</h3>
-  <div class="album py-5 bg-light">
+
+  // const itemsPerPage = 5; // Number of items per page
+  // const [currentPage, setCurrentPage] = useState(1);
+
+  // const indexOfLastRocket = currentPage * itemsPerPage;
+  // const indexOfFirstRocket = indexOfLastRocket - itemsPerPage;
+  // const currentRockets = rockets.slice(indexOfFirstRocket, indexOfLastRocket);
+
+  // const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+  return (
+    <>
+
+      <h3 className="text-center" id="rocket">ROCKETS</h3>
+      <div class="album py-5 bg-light">
         <div class="container">
           <div class="row">
-            <div class="col-md-4">
-            {/* {rockets.map((rocket)=>( */}
-              <div class="card mb-4 box-shadow">
-                <div class="card-body">
-                <h5 class="card-title"> rocket.name</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                 <p class="card-text">type:rocket.type</p>
-                 <p class="card-text">status:rocket.name</p>
-                   
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                    <button onClick={openPopup}>View Details</button>
-
-                    </div>
-                    <small class="text-muted">9 mins</small>
-                  </div>
-                </div>
-              </div>
-               {/* ))} */}
-            </div>
-            </div>
-   </div>
-   </div>
-  
-   <div>
-      {isPopupOpen && (
-        <div className="popup">
-          <div className="popup-content">
-            {/* Popup Content */}
-         
-            {/* Add other rocket details here */}
-            <Rocket/>
-            <button onClick={closePopup}>Close</button>
+            <RocketCard />
+            {/* <RocketCard key={rocket.id} rocket={rocket} /> */}
+            {/*    
+            <Pagination>
+        {Array.from({ length: Math.ceil(rockets.length / itemsPerPage) }).map((_, index) => (
+          <Pagination.Item key={index} active={index + 1 === currentPage} onClick={() => paginate(index + 1)}>
+            {index + 1}
+          </Pagination.Item>
+        ))}
+      </Pagination> */}
           </div>
         </div>
-      )}
-    </div>
-   
+      </div>
+
+
 
     </>
-    
-     )
+
+  )
 }
 export default RocketList;
