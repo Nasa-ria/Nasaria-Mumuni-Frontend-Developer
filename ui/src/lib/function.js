@@ -16,7 +16,10 @@ export const connectApi = async(endpoint,method="GET",data=null)=>{
  let options={
      mode:"cors",
      method:method,
-     headers:{"content-Type":"application/json"}
+     headers:{
+      "content-Type":"application/json",
+      "Authorization":"zaCELgL.0imfnc8mVLWwsAawjYr4Rx-Af50DDqtlx"
+    }
  }
  let optionsData;
  if(data){
