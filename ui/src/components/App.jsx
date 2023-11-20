@@ -15,7 +15,7 @@ function App() {
           <div className="album py-5 bg-light">
             <div className="container">
               <Routes>
-                <Route path="/rocket" exact element={<Home />} />
+                <Route path="/" exact element={<Home />} />
 
               </Routes>
             </div>

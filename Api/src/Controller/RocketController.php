@@ -28,7 +28,7 @@ class RocketController{
     {
         try {
             $rocketData = $this->rocketModel->findAll();
-            return $this->jsonResponse(['message' => 'Data fetched successfully', 'data' => $rocketData]);
+            return $this->jsonResponse(['message' => 'Data fetched successfully','success' => true, 'data' => $rocketData]);
         } catch (\Exception $e) {
             // Handle the exception, log, and return an error response
             return $this->jsonResponse(['error' => $e->getMessage()], 500);
@@ -42,7 +42,7 @@ class RocketController{
         try {
             $rocketData = $this->rocketModel->findOne($rocket_id);
             // Use your custom jsonResponse method
-            return $this->jsonResponse(['message' => 'Data fetched successfully', 'data' => $rocketData]);
+            return $this->jsonResponse(['message' => 'Data fetched successfully','success' => true, 'data' => $rocketData]);
         } catch (\Exception $e) {
             // Handle the exception, log, and return an error response
             return $this->jsonResponse(['error' => $e->getMessage()], 500);

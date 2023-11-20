@@ -1,32 +1,28 @@
 <?php
+
 namespace App\Model;
 
-use App\Authorization\Authenticator;
-use Firebase\JWT\JWT;
 
 
-class Rocket{
+
+class Rocket
+{
     private $apiUrl;
-    private $headers;
-    private $authenticator;
 
-    public function __construct( Authenticator $authenticator)
+
+    // public function __construct( Authenticator $authenticator)
+    public function __construct()
     {
-        // $this->authenticator = $authenticator;
-        $this->apiUrl = 'https://api.spacexdata.com/v3/rockets';
-        // $token = $this->authenticator->generateToken();
 
-        // $this->headers = [
-        //     'Authorization: Bearer ' . $token,
-        //     'Content-Type: application/json', 
-        // ];
+        $this->apiUrl = 'https://api.spacexdata.com/v3/rockets';
+ 
     }
 
-   
 
-    private function spaceXapi($param=""){
-        $ch = curl_init($this->apiUrl  .$param);
-        // curl_setopt($ch, CURLOPT_HTTPHEADER, $this->headers);
+
+    private function spaceXapi($param = "")
+    {
+        $ch = curl_init($this->apiUrl . $param);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $data = curl_exec($ch);
         // Check for cURL errors
@@ -38,27 +34,26 @@ class Rocket{
     }
 
 
-
     public function findAll()
     {
         return $this->spaceXapi();
     }
 
     public function findOne($rocket_id)
-    {   
-        $concat = '/'.$rocket_id;
+    {
+        $concat = '/' . $rocket_id;
         return $this->spaceXapi($concat);
-     }
+    }
 
 
-     
+
     public function search($status, $originalLaunch, $type)
     {
         $queryParams = [
             'status' => $status,
             'original_launch' => $originalLaunch,
             'type' => $type,
-        ]; 
+        ];
         $queryString = http_build_query(array_filter($queryParams));
         $queryString = $queryString ? '?' . $queryString : '';
         return $this->spaceXapi($queryString);
