@@ -1,9 +1,6 @@
 <?php
 
 namespace App;
-
-
-use Dotenv\Dotenv;
 use App\Model\Rocket;
 use App\Authorization\Authenticator;
 use App\Controller\RocketController;
@@ -11,8 +8,6 @@ use Nyholm\Psr7\Factory\Psr17Factory;
 
 require_once './vendor/autoload.php';
 
-$dotenv = Dotenv::createImmutable(__DIR__);
-$dotenv->load();
 
 header('Access-Control-Allow-Origin: http://localhost:3000');
 header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
@@ -30,8 +25,7 @@ $uri = $request->getUri()->getPath();
 
 // Get the Authorization header from the request
 $authorizationHeader = $_SERVER['HTTP_AUTHORIZATION'] ?? '';
-// $auth =$request->withHeader('Authorization');
-// var_dump($authorizationHeader );
+
 
 // Pass the token to the handleRequest method in the Authenticator
 $userData = $authenticator->handleRequest($authorizationHeader);
@@ -47,15 +41,12 @@ if ($userData) {
 
     if ($segments[0] == 'rockets') {
         switch ($segments[1] ?? null) {
-            case 'search':
-                $response= $controller->searchRocket($request, $response);
-                break;
             case null:
-                $response=  $controller->listRockets($request, $response);
+                $response =  $controller->listRockets($request, $response);
                 break;
             default:
                 $rocket_id = $segments[1];
-              $response=  $controller->getRocket($request, $response, $rocket_id);
+                $response =  $controller->getRocket($request, $response, $rocket_id);
                 break;
         }
     } else {

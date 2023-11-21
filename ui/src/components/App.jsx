@@ -8,10 +8,8 @@ function App() {
     <div>
 
       <BrowserRouter>
-
         <Nav />
         <main>
-
           <div className="album py-5 bg-light">
             <div className="container">
               <Routes>
@@ -20,12 +18,9 @@ function App() {
               </Routes>
             </div>
           </div>
-
         </main>
         < Footer />
-
       </BrowserRouter>
-
     </div>
   );
 }

@@ -9,11 +9,8 @@ class Rocket
 {
     private $apiUrl;
 
-
-    // public function __construct( Authenticator $authenticator)
     public function __construct()
     {
-
         $this->apiUrl = 'https://api.spacexdata.com/v3/rockets';
  
     }
@@ -33,7 +30,8 @@ class Rocket
         return json_decode($data, true);
     }
 
-
+ 
+    
     public function findAll()
     {
         return $this->spaceXapi();
@@ -47,15 +45,4 @@ class Rocket
 
 
 
-    public function search($status, $originalLaunch, $type)
-    {
-        $queryParams = [
-            'status' => $status,
-            'original_launch' => $originalLaunch,
-            'type' => $type,
-        ];
-        $queryString = http_build_query(array_filter($queryParams));
-        $queryString = $queryString ? '?' . $queryString : '';
-        return $this->spaceXapi($queryString);
-    }
 }

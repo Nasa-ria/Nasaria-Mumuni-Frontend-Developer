@@ -13,37 +13,36 @@ function RocketCard(props) {
         setIsPopupOpen(false);
     };
 
+    const fullDescription = props.rocket.description;
+    // Displaying only the first 100 characters of the description
+    const truncatedDescription = fullDescription ? fullDescription.substring(0, 100) : '';
 
 
 
     return (
         <>
-         <div class="col-md-4">
-                <div class="card mb-4 box-shadow">
-                    <div class="card-body">
-                        <h5 class="card-title"> {props.rocket.rocket_name}</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <p class="card-text">country:{props.rocket.country}</p>
-                        <p class="card-text">company:{props.rocket.company}</p>
+            <div class="row">
+            <div class="card ">
+                <div class="card-body">
+                    <h5 class="card-title text-center"> {props.rocket.rocket_name}</h5>
+                    <p class="card-text">{truncatedDescription}......</p>
+                  
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <button className="btn btn-lg btn-primary" onClick={openPopup}>View Details</button>
 
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="btn-group">
-                                <button className="btn btn-lg btn-primary" onClick={openPopup}>View Details</button>
-
-                            </div>
-                            <small class="text-muted">9 mins</small>
                         </div>
+                        
                     </div>
-                </div>
-             
+            </div>
+            </div>
 
             </div>
             <div>
                 {isPopupOpen && (
                     <div className="popup">
                         <div className="popup-content">
-                          
-                            <Rocket rocket={props.rocket}/>
+                         <Rocket rocket={props.rocket} />
                             <button className="btn btn-lg btn-primary" onClick={closePopup}>Close</button>
                         </div>
                     </div>

@@ -5,8 +5,6 @@ import {Link} from 'react-router-dom'
 function Rocket(props){
         const[rocket,setRocket]=useState({
         })
-        // const {id}=useParams()
-
         var id = props.rocket.rocket_id;
   useEffect(() => {
     const findOne = async () => {
@@ -27,9 +25,6 @@ function Rocket(props){
     findOne();
   }, [id]);
         
-          
-
-
     return(
         <>
         {console.log(rocket)}

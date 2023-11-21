@@ -1,8 +1,6 @@
 function Footer() {
   return (
     <>
-
-
       <hr />
       <div class="container">
         <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
@@ -11,7 +9,6 @@ function Footer() {
             </a>
             <span class="text-muted">&copy; 2023 Company, Inc</span>
           </div>
-
           <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
             <li class="ms-3"><a class="text-muted" href="#"><i class="bi bi-instagram"></i></a></li>
             <li class="ms-3"><a class="text-muted" href="#"><i class="bi bi-facebook"></i></a></li>
