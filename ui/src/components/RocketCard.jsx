@@ -22,7 +22,7 @@ function RocketCard(props) {
 
     return (
         <>
-         <Col xs={12} lg={4} className="pb-2">
+         <Col xs={12} lg={4} className=" rocketlist pb-2">
 
          <Card >
       <Card.Body>

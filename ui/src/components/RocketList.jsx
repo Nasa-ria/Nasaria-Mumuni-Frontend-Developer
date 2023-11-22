@@ -90,9 +90,9 @@ function RocketList() {
     <>
       {/* search */}
       <Row>
-        <Col>
-        <h3 className="text-center mt-5" id="rocket">ROCKETS</h3>
-          <InputGroup className="mb-3">
+        <Col className="rockettitle">
+        <h3 className=" text-center mt-5" id="rocket">ROCKETS</h3>
+          <InputGroup className="search mb-3">
             <Form.Control
               placeholder="search by name,country or company"
               value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)}

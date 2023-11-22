@@ -74,10 +74,7 @@
     display: flex;
   
 }
-/* .logo{
-    order: 1;
-    /* font-size: 2.3rem; */
-/* } */ 
+ 
 .menu-items li{
     list-style: none;
     margin-left: 1.5rem;
@@ -165,6 +162,7 @@
         margin-bottom: 1.8rem;
         font-size: 1.1rem;
         font-weight: 500;
+        margin-right: 30px;
     }
     .logo{
         position: absolute;
@@ -189,17 +187,105 @@
     .navbar-container input[type="checkbox"]:checked ~ .logo{
         display: none;
     }
+   
+}
+/* small screen mobile*/
+@media only screen and (min-width:320px){
+    /* *{} */
+    
+    .bannerbody{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    }
+   .imgb{
+    width: 19em;
+    overflow-x: hidden;
+   margin-left: -12px;
+}
+.rockettitle{
+    margin-top:65em ;
+}
+.abtimg{
+    height: 27em;
+}
+}
+@media only screen and (min-width:375px){
+    .imgb{
+        width: 23em;
+        overflow-x: hidden;
+       margin-left: -12px;
+    }
 }
 
-
-
-/*  small device(portrait tablet and large phones  600px and up */
-@media only screen and (min-width:600px) and (max-width:768px){
-
-
+@media only screen and (min-width:375px){
+    .imgb{
+        width: 24em;
+        overflow-x: hidden;
+       margin-left: -12px;
+    }
 }
-/* Medium  device(landscape and tablet, 768px and up */
-@media only screen and (min-width:768px)and (max-width:992px){
+
+.rockettitle{
+    margin-top:36em ;
 }
-@media only screen and (min-width:992px){
+
+@media only screen and (min-width:768px){
+    .navbar-container input[type="checkbox"]:checked ~ .logo{
+        display: none;
+    }
+    .imgb{
+        width: 54em;
+        overflow-x: hidden;
+       margin-left: -60px;
+    }
+}
+
+@media only screen and (min-width:104px){
+    .bannerbody{
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: row;
+      /* margin-left: 20em; */
+    }
+    .imgb{
+        /* width: 54em; */
+        /* overflow-x: hidden; */
+       /* margin-left: 39em; */
+       margin-top: 7em;
+    }
+    .rockettitle{
+        margin-top:3em ;
+        margin-left: 3em;
+    }
+   .abtout{
+    margin-bottom: 8em;
+   }
+}
+@media only screen and (min-width:1440px){
+   
+    .imgb{
+        width: 32em;
+        overflow-x: hidden;
+       margin-left: 9em;
+       /* margin-top: 7em; */
+    }
+    
+    .search{
+        width: 60em;
+    }
+    @media only screen and (min-width:12560px){
+   
+        .imgb{
+            width: 32em;
+            overflow-x: hidden;
+           margin-left: 9em;
+           /* margin-top: 7em; */
+        }
+        /* .navbar{
+            width: 100%; */
+           
+        /* } */
+    }
+ 
 }

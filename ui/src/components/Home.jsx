@@ -14,45 +14,45 @@ function Home() {
   
   
       {/* banner */}
-     <section className=" mt-5 " >
-        <div className="container pb-5">
-          <div className="row py-5 align-items-center ">
+     <section className="   mt-5 " >
+        <div className=" banner container pb-5">
+          <div className=" bannerbody row py-5 align-items-center ">
             <div className="col-lg-6 ">
               <h5 className="display-4 mb-4 font-weight-bold text-black">A modular UI Kit for Bootstrap</h5>
-              <p className="h5 aa mb-4 pb-3 text-black-50 mt-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nunc nisi, suscipit id dapibus sit amet, lacinia nec lorem. Aenean eget urna rutrum suscipit.</p>
+              <p className=" bannertext h5 aa mb-4 pb-3 text-black-50 mt-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nunc nisi, suscipit id dapibus sit amet, lacinia nec lorem. Aenean eget urna rutrum suscipit.</p>
               {/* <h3 className="text-black mb-6">5.20$</h3> */}
               
             </div>
-            <div className="col-6 .col-sm-4.col-lg-8text-lg-rigt text-center mt-5 mt-lg-0">
-              <div className="banner-phoneimage"> <img src={rocket} /> </div>
+            <div className=" imgb col-6 .col-sm-4.col-lg-8text-lg-rigt text-center mt-5 mt-lg-0">
+              <div className="banner-phoneimage "> <img src={rocket} /> </div>
             </div>
           </div>
        </div>
       </section>
 
       {/* About us section */}
-      <div style={{width:"100%", backgroundColor:"lightblue",height:"33em"}}>    
-      <section className=""  id="about">
-        <div className=" container ">
+      <div className="about"style={{width:"100%", backgroundColor:"lightblue",height:"33em"}}>    
+      <section className="about"  id="about">
+        <div className=" container aboutcontainer ">
           <div className="row gy-3 w-100 pt-5">
             <div className="col-12 col-lg-6 col-xl-5  my-4">
-              <img className="img-fluid rounded" loading="lazy" src={aboutimg} style={{ width: "77em" }} alt="About 1" />
+              <img className="img-fluid rounded abtimg" loading="lazy" src={aboutimg} style={{ width: "77em" }} alt="About 1" />
             </div>
             <div className="col-12 col-lg-6 col-xl-7">
               <div className="row justify-content-xl-center">
                 <div className="col-12 col-xl-11">
-                  <h2 className="mb-3">Who Are We?</h2>
+                  <h2 className="mb-3 textstart">Who Are We?</h2>
                   <p className="lead fs-4 text-secondary mb-3">We help people to build incredible brands and superior products. Our perspective is to furnish outstanding captivating services.</p>
-                  <p className="mb-5">We are a fast-growing company, but we have never lost sight of our core values. We believe in collaboration, innovation, and customer satisfaction. We are always looking for new ways to improve our products and services.</p>
+                  <p className="mb-5 ">We are a fast-growing company, but we have never lost sight of our core values. We believe in collaboration, innovation, and customer satisfaction. We are always looking for new ways to improve our products and services.</p>
                   <div className="row gy-4 gy-md-0 gx-xxl-5X">
-                    <div className="col-12 col-md-6">
+                    <div className="col-12 col-md-6 ">
                       <div className="d-flex">
                         <div className="me-4 text-primary">
                           <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" className="bi bi-gear-fill" viewBox="0 0 16 16">
                             <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z" />
                           </svg>
                         </div>
-                        <div>
+                        <div className="abtV">
                           <h2 className="h4 mb-3">Versatile Brand</h2>
                           <p className="text-secondary mb-0">We are crafting a digital method that subsists life across all mediums.</p>
                         </div>
@@ -81,7 +81,7 @@ function Home() {
         </div>
 
       {/* rocket lit */}
-      <section className=" mt-5 " >
+      <section className=" rocketlist mt-5 " >
         <div className="container pb-5">
         <RocketList />
        </div>
