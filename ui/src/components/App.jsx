@@ -11,12 +11,12 @@ function App() {
         <Nav />
         <main>
           <div className="album py-5 bg-light">
-            <div className="container">
+        
               <Routes>
                 <Route path="/" exact element={<Home />} />
 
               </Routes>
-            </div>
+          
           </div>
         </main>
         < Footer />

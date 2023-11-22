@@ -84,41 +84,44 @@ function RocketList() {
         <div>
 
           {searchNotFound ? (
-            <div>
-            <p>No results found</p>
-            <button onClick={handleCloseResults}>Close</button>
+            <div className="d-flex row justify-content-center">
+            <p  className="text-center" style={{fontFamily:"sans-serif",fontSize:"2em"}}>No results found</p>
+            <button className=" btn btn-lg btn-primary " style={{width:"5em"}} onClick={handleCloseResults}>Close</button>
           </div>
           ) : (
-            filteredRockets.map((rocket) => (
+            <div className="d-flex justify-content-center mt-4 mx-2">
+            {filteredRockets.map((rocket) => (
+                 <div class="">
+                    <div class=" rounded ">
               <div key={rocket.id} className="rocket-card">
                 <h3>{rocket.rocket_name}</h3>
-                <p>Country: {rocket.country}</p>
-                <p>Company: {rocket.company}</p>
-                <button onClick={() => handleClose(rocket.id)}>Close</button>
+                <p><b>Country:</b> {rocket.country}</p>
+                <p><b>Company: </b>{rocket.company}</p>
+                <button   className="btn  btn-primary" onClick={() => handleClose(rocket.id)}>Close</button>
               </div>
-            ))
+              </div>
+              </div>
+            ))}
+            </div>
           )}
         </div>
       </div>
-
-
-
-      <div className="d-flex mb-3 mt-5 ">
+      <div className="d-flex mb-3 mt-5  ">
           {rockets.map((rocket) => (
             < RocketCard key={rocket.id} rocket={rocket} />
 
           ))}
        
        </div>
-
-
-      <Pagination>
+       <div style={{display:"flex",justifyContent:"center"}}>
+       <Pagination>
         {Array.from({ length: Math.ceil(rockets.length / itemsPerPage) }).map((_, index) => (
           <Pagination.Item key={index} active={index + 1 === currentPage} onClick={() => paginate(index + 1)}>
             {index + 1}
           </Pagination.Item>
         ))}
       </Pagination>
+       </div>
     </>
   )
 }

@@ -27,12 +27,11 @@ function Rocket(props){
         
     return(
         <>
-        {console.log(rocket)}
            <h3 className="text-center">{rocket.rocket_name}</h3>
-           <p>Description: {rocket.description}</p>
-           <p>Company: {rocket.company}</p>
-           <p>Country: {rocket.country}</p>
-           <h3> <Link to={rocket.wikipedia}>wikipedia</Link></h3>
+           <p><b>Description:</b> {rocket.description}</p>
+           <p><b>Company:</b> {rocket.company}</p>
+           <p><b>Country:</b> {rocket.country}</p>
+           <h3> <Link to={rocket.wikipedia}>wikipedia Link</Link></h3>
         </>
     )
 }

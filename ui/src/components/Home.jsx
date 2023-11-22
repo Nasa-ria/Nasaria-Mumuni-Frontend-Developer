@@ -10,8 +10,11 @@ function Home() {
 
   return (
     <>
-    <div className="">
-     <section className="banner"  >
+  
+  
+  
+      {/* banner */}
+     <section className=" mt-5 " >
         <div className="container pb-5">
           <div className="row py-5 align-items-center ">
             <div className="col-lg-6 ">
@@ -24,17 +27,18 @@ function Home() {
               </div>
             </div>
             <div className="col-6 .col-sm-4.col-lg-8text-lg-rigt text-center mt-5 mt-lg-0">
-              <div className="banner-phone-image"> <img src={rocket} /> </div>
+              <div className="banner-phoneimage"> <img src={rocket} /> </div>
             </div>
           </div>
-        </div>
+       </div>
       </section>
-</div>
+
       {/* About us section */}
-      <section className="py-3 py-md-5" id="about">
-        <div className="container">
-          <div className="row gy-3 gy-md-4 gy-lg-0 align-items-lg-center">
-            <div className="col-12 col-lg-6 col-xl-5">
+      <div style={{width:"100%", backgroundColor:"lightblue",height:"33em"}}>    
+      <section className=""  id="about">
+        <div className=" container ">
+          <div className="row gy-3 container-fluid w-100 pt-5">
+            <div className="col-12 col-lg-6 col-xl-5  my-4">
               <img className="img-fluid rounded" loading="lazy" src={aboutimg} style={{ width: "77em" }} alt="About 1" />
             </div>
             <div className="col-12 col-lg-6 col-xl-7">
@@ -75,12 +79,15 @@ function Home() {
               </div>
             </div>
           </div>
+          </div>
+        </section>
         </div>
-      </section>
 
       {/* rocket lit */}
       <RocketList />
-      <p className=""><Link to="nav" smooth={true} duration={500}><i class="bi bi-arrow-up" style={{ fontSize: "3em" }}></i></Link></p>
+      <p className=""><Link to="nav" smooth={true} duration={500}><i class="bi bi-arrow-up" style={{ fontSize: "2em" ,float:"right"}}></i></Link></p>
+
+      
     </>
   )
 }
