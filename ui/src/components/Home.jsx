@@ -20,11 +20,8 @@ function Home() {
             <div className="col-lg-6 ">
               <h5 className="display-4 mb-4 font-weight-bold text-black">A modular UI Kit for Bootstrap</h5>
               <p className="h5 aa mb-4 pb-3 text-black-50 mt-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nunc nisi, suscipit id dapibus sit amet, lacinia nec lorem. Aenean eget urna rutrum suscipit.</p>
-              <h3 className="text-black mb-6">5.20$</h3>
-              <div className="d-flex gap-3 mb-5">
-                <a href="" className="btn btn-lg btn-primary mr-2"><i className="lni lni-apple mr-2"></i> Download for IOS</a>
-                <a href="" className="btn btn-lg btn-primary"><i className="lni lni-play-store mr-2"></i> Download for Android</a>
-              </div>
+              {/* <h3 className="text-black mb-6">5.20$</h3> */}
+              
             </div>
             <div className="col-6 .col-sm-4.col-lg-8text-lg-rigt text-center mt-5 mt-lg-0">
               <div className="banner-phoneimage"> <img src={rocket} /> </div>
@@ -37,7 +34,7 @@ function Home() {
       <div style={{width:"100%", backgroundColor:"lightblue",height:"33em"}}>    
       <section className=""  id="about">
         <div className=" container ">
-          <div className="row gy-3 container-fluid w-100 pt-5">
+          <div className="row gy-3 w-100 pt-5">
             <div className="col-12 col-lg-6 col-xl-5  my-4">
               <img className="img-fluid rounded" loading="lazy" src={aboutimg} style={{ width: "77em" }} alt="About 1" />
             </div>
@@ -84,8 +81,13 @@ function Home() {
         </div>
 
       {/* rocket lit */}
-      <RocketList />
-      <p className=""><Link to="nav" smooth={true} duration={500}><i class="bi bi-arrow-up" style={{ fontSize: "2em" ,float:"right"}}></i></Link></p>
+      <section className=" mt-5 " >
+        <div className="container pb-5">
+        <RocketList />
+       </div>
+      </section>
+    
+      <p className=""><Link to="nav" smooth={true} duration={500}><i class="bi bi-arrow-up" style={{ fontSize: "2em" ,float:"right",marginBottom:6}}></i></Link></p>
 
       
     </>

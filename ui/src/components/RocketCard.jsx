@@ -1,6 +1,7 @@
 import { useState } from "react"
 import Rocket from "./Rocket";
 import './Style.css';
+import { Card, Button, Col,  } from 'react-bootstrap';
 
 function RocketCard(props) {
     const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -21,27 +22,22 @@ function RocketCard(props) {
 
     return (
         <>
-            <div class="container mt-5 mx-2">
-                <div class="row">
-                    <div class="col">
-                        <div class="card p-3">
-                            <div class="card-body">
-                                <h5 class="card-title text-center"> {props.rocket.rocket_name}</h5>
-                                <p class="card-text">{truncatedDescription}......</p>
+         <Col xs={12} lg={4} className="pb-2">
 
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <button className="btn btn-lg btn-primary" onClick={openPopup}>View Details</button>
+         <Card >
+      <Card.Body>
+        <Card.Title>{props.rocket.rocket_name}</Card.Title>
+        <Card.Text>
+        {truncatedDescription}.....
+        </Card.Text>
+        <Button onClick={openPopup} >View Details</Button>
 
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-            <div>
+      </Card.Body>
+    </Card>
+ 
+                        </Col>
+           
+        
                 {isPopupOpen && (
                     <div className="popup">
                         <div className="popup-content">
@@ -50,7 +46,7 @@ function RocketCard(props) {
                         </div>
                     </div>
                 )}
-            </div>
+          
 
         </>
     )

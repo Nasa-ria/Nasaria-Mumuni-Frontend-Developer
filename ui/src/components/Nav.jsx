@@ -15,7 +15,7 @@ function Nav() {
             <span className="line line3"></span>
           </div>
           <ul className="menu-items mb-3">
-            <li><a href="#"> <Link to="" smooth={true} duration={500}>Home</Link></a></li>
+            <li><a href="#"> <Link to="nav" smooth={true} duration={500}>Home</Link></a></li>
             <li><a href="#"> <Link to="about" smooth={true} duration={500}>About</Link></a></li>
             <li><a href="#"> <Link to="rocket" smooth={true} duration={500}>Rocket</Link></a></li>
 

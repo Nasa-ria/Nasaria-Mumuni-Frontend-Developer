@@ -190,3 +190,16 @@
         display: none;
     }
 }
+
+
+
+/*  small device(portrait tablet and large phones  600px and up */
+@media only screen and (min-width:600px) and (max-width:768px){
+
+
+}
+/* Medium  device(landscape and tablet, 768px and up */
+@media only screen and (min-width:768px)and (max-width:992px){
+}
+@media only screen and (min-width:992px){
+}

@@ -9,16 +9,10 @@ function App() {
 
       <BrowserRouter>
         <Nav />
-        <main>
-          <div className="album py-5 bg-light">
-        
               <Routes>
                 <Route path="/" exact element={<Home />} />
 
               </Routes>
-          
-          </div>
-        </main>
         < Footer />
       </BrowserRouter>
     </div>
